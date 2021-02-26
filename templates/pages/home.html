@@ -3,9 +3,17 @@
 
 
 {% block content %}
-Welcome to Tweetme 2
+<div class= 'row text-center' >
+    <div class= 'col'>
+        <h1>
+            Welcome to Tweetme 2
+        </h1>
+    </div>
+</div>
 
-<div id='tweets'>
+
+
+<div class="row" id='tweets'>
     Loading ...
 </div>
 
@@ -23,11 +31,12 @@ Welcome to Tweetme 2
     }
 
     function LikeBtn(tweet) {
-        return "<button class= 'btn btn-primary' onclick= handleDidLike(tweet.id, tweet.likes)>Like</button>"
+        return "<button class= 'btn btn-primary' onclick= handleDidLike(" +
+        tweet.id + "," + tweet.likes + ")>" + tweet.likes + " Like</button>"
     }
 
     function formatTweetElement(tweet) {
-        const formattedTweet = "<div class='mb-4' id= 'tweet-" 
+        const formattedTweet = "<div class='mb-4 col-md-10 mx-auto col-12 border rounded py-3' id= 'tweet-" 
         + tweet.id + "'>" 
         + "<p>" 
         + tweet.content
