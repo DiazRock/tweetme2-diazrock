@@ -19,8 +19,9 @@
               method= 'POST' 
               action='/create-tweet'>
             {% csrf_token %}
+            <div class= 'd-none alert alert-danger' id='tweet-create-form-error'></div>
             <input type='hidden' value='/' name='next' />
-            <textarea required='required' class= 'form-control' name= 'content'  placeholder="Your tweet ..." >
+            <textarea required class= 'form-control' name= 'content'  placeholder="Your tweet ..." >
             </textarea>
             <button type='submit' class='btn btn-primary mt-4' >Tweet</button>
         </form>
@@ -33,6 +34,17 @@
 </div>
 
 <script>
+
+    const handleTweetFormError = (msg, display) => {
+        const myErrorDiv = document.getElementById("tweet-create-form-error")
+        if (display) {
+            myErrorDiv.setAttribute("class", "alert-danger alert d-block")
+            myErrorDiv.innerText = msg
+        }else {
+            myErrorDiv.setAttribute("class", "d-none alert alert-danger")
+        }
+    }
+
     const tweetCreateFormEl = document.getElementById("tweet-create-form")
     const handleTweetCreateFormDidSubmit = (event) => {
         event.preventDefault()
@@ -48,6 +60,7 @@
         xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest")
         xhr.onload = () => {
             if (xhr.status === 201){
+                handleTweetFormError("", false)
                 const newTweet = xhr.response
                 const newTweetEl = formatTweetElement(newTweet)
                 console.log(newTweetEl)
@@ -57,7 +70,16 @@
                 myForm.reset()
             } else if (xhr.status === 400) {
                 const errorJson = xhr.response
-                console.log(errorJson)
+                const contentError = errorJson.content
+                if (contentError) {
+                    if (contentError[0]) {
+                        handleTweetFormError(contentError[0], true)
+                    } else {
+                        alert("An error ocurred. Please try again.")
+                    }
+                } else {
+                    alert("Another error ocurred. Please, try again.")
+                }
             } else if (xhr.status === 500) {
                 alert("There was a server error, please try again")
             }
