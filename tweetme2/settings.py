@@ -26,6 +26,7 @@ SECRET_KEY = '&rjx1bh+@(fq6&p4pq%30i3xjbj+0)p_8mf)ebu@wia4n7s9%s'
 DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+LOGIN_URL = "/login"
 
 
 # Application definition
@@ -37,7 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'tweets',
+    # Third party
+    'rest_framework',
+    # Internal
+    'tweets'
 ]
 
 MIDDLEWARE = [
@@ -119,3 +123,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MAX_TWEET_LENGTH = 240
