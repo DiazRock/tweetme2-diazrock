@@ -125,3 +125,21 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 MAX_TWEET_LENGTH = 240
+
+TWEET_ACTION_OPTIONS = ['like', 'unlike', 'retweet']
+
+DEFAULT_RENDERER_CLASSES = [
+        'rest_framework.renderers.JSONRenderer'
+    ]
+
+if DEBUG:
+    DEFAULT_RENDERER_CLASSES += [
+        'rest_framework.renderers.BrowsableAPIRenderer'
+    ]
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        'rest_framework.authentication.SessionAuthentication'
+    ],
+    "DEFAULT_RENDERER_CLASSES": DEFAULT_RENDERER_CLASSES
+}
