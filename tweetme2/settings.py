@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Third party
     'rest_framework',
+    'corsheaders',
     # Internal
     'tweets'
 ]
@@ -52,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware'
 ]
 
 ROOT_URLCONF = 'tweetme2.urls'
@@ -124,9 +126,17 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static")
+]
+STATIC_ROOT = os.path.join(BASE_DIR, "static-root")
+
 MAX_TWEET_LENGTH = 240
 
 TWEET_ACTION_OPTIONS = ['like', 'unlike', 'retweet']
+
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_URLS_REGEX = r'^/api/.*$'
 
 DEFAULT_RENDERER_CLASSES = [
         'rest_framework.renderers.JSONRenderer'
@@ -143,3 +153,4 @@ REST_FRAMEWORK = {
     ],
     "DEFAULT_RENDERER_CLASSES": DEFAULT_RENDERER_CLASSES
 }
+
