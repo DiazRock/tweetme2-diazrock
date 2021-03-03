@@ -18,7 +18,7 @@ SECRET_KEY = '#)=h)_wc*k%f=wk+!$x0t%1wx7*_50$a1%*75s$og(8$27$ju1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]']
+ALLOWED_HOSTS = ['*']
 LOGIN_URL = "/login"
 
 MAX_TWEET_LENGTH = 240
@@ -129,14 +129,8 @@ STATICFILES_DIRS = [
 STATIC_ROOT = os.path.join(BASE_DIR, "static-root")
 
 
-CORS_ORIGIN_ALLOW_ALL = False # any website has access to my api
-CORS_ORIGIN_WHITELIST = (
-       'https://tweetme2-diazrock.herokuapp.com/',
-)
-
-
- 
-
+CORS_ORIGIN_ALLOW_ALL = True # any website has access to my api
+CORS_URLS_REGEX = r'^/api/.*$'
 
 
 DEFAULT_RENDERER_CLASSES = [
