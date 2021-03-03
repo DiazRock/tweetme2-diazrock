@@ -129,7 +129,13 @@ STATICFILES_DIRS = [
 STATIC_ROOT = os.path.join(BASE_DIR, "static-root")
 
 
-CORS_ORIGIN_ALLOW_ALL = True # any website has access to my api
+CORS_ORIGIN_ALLOW_ALL = False # any website has access to my api
+CORS_ORIGIN_WHITELIST = (
+       'https://tweetme2-diazrock.herokuapp.com/',
+)
+
+
+ 
 
 
 
