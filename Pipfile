@@ -13,6 +13,7 @@ python-decouple = "*"
 whitenoise = "*"
 dj-database-url = "*"
 pillow = "*"
+django-cors-middleware = "*"
 
 [dev-packages]
 
