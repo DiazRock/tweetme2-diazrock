@@ -19,6 +19,8 @@ export function backendLookup(method, endpoint, callback, data) {
   if (data){
     jsonData = JSON.stringify(data)
   }
+  console.log(data)
+  console.log(jsonData)
   const xhr = new XMLHttpRequest()
   const url = `//tweetme2-diazrock.herokuapp.com:8000/api${endpoint}`
   xhr.responseType = "json"
@@ -31,7 +33,7 @@ export function backendLookup(method, endpoint, callback, data) {
     xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest")
     xhr.setRequestHeader("X-CSRFToken", csrftoken)
   }
-  
+  console.log(xhr)
   xhr.onload = function() {
     if (xhr.status === 403) {
       const detail = xhr.response.detail
