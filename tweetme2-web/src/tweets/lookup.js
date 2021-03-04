@@ -16,7 +16,7 @@ export function apiTweetDetail(tweetId, callback) {
 export function apiTweetFeed(callback, nextUrl) {
     let endpoint =  "/tweets/feed/"
     if (nextUrl !== null && nextUrl !== undefined) {
-        endpoint = nextUrl.replace("https://tweetme2-diazrock.herokuapp.com:8000/api", "")
+        endpoint = nextUrl.replace("//tweetme2-diazrock.herokuapp.com:8000/api", "")
     }
     backendLookup("GET", endpoint, callback)
 }
@@ -28,7 +28,7 @@ export function apiTweetList(username, callback, nextUrl) {
         endpoint =  `/tweets/?username=${username}`
     }
     if (nextUrl !== null && nextUrl !== undefined) {
-        endpoint = nextUrl.replace("https://tweetme2-diazrock.herokuapp.com:8000/api", "")
+        endpoint = nextUrl.replace("//tweetme2-diazrock.herokuapp.com:8000/api", "")
     }
     backendLookup("GET", endpoint, callback)
 }

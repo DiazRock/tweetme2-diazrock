@@ -20,7 +20,7 @@ export function backendLookup(method, endpoint, callback, data) {
     jsonData = JSON.stringify(data)
   }
   const xhr = new XMLHttpRequest()
-  const url = `https://tweetme2-diazrock.herokuapp.com:8000/api${endpoint}`
+  const url = `//tweetme2-diazrock.herokuapp.com:8000/api${endpoint}`
   xhr.responseType = "json"
   const csrftoken = getCookie('csrftoken');
   xhr.open(method, url)
