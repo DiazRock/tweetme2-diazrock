@@ -15,7 +15,7 @@ dj-database-url = "*"
 pillow = "*"
 django-cors-middleware = "*"
 uwsgi = "*"
-
+dj-static = "*"
 
 [dev-packages]
 
