@@ -7,6 +7,15 @@ name = "pypi"
 django = "==2.2"
 djangorestframework = "*"
 django-cors-headers = "*"
+gunicorn = "*"
+django-heroku = "*"
+python-decouple = "*"
+whitenoise = "*"
+dj-database-url = "*"
+pillow = "*"
+django-cors-middleware = "*"
+uwsgi = "*"
+
 
 [dev-packages]
 
