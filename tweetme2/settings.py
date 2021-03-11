@@ -26,7 +26,7 @@ default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.cfe.sh', 'localhost']
+ALLOWED_HOSTS = ['127.0.0.1', 'tweemte2-diazrock.herokuapp.com', 'localhost']
 LOGIN_URL = "/login"
 
 MAX_TWEET_LENGTH = 240
